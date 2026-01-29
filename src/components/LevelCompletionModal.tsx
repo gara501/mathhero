@@ -108,7 +108,7 @@ export default function LevelCompletionModal({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate('/dashboard')}
-            className="group relative w-full py-5 bg-accent-yellow text-dark-bg font-black rounded-2xl shadow-[0_10px_25px_rgba(244,224,77,0.4)] hover:shadow-[0_15px_35px_rgba(244,224,77,0.6)] transition-all flex items-center justify-center gap-3 uppercase tracking-wider relative z-10 overflow-hidden"
+            className="group relative w-full py-5 bg-accent-yellow text-dark-bg font-black rounded-2xl shadow-[0_10px_25px_rgba(244,224,77,0.4)] hover:shadow-[0_15px_35px_rgba(244,224,77,0.6)] transition-all flex items-center justify-center gap-3 uppercase tracking-wider relative z-10 overflow-hidden cursor-pointer"
           >
             <span className="relative z-10">Continuar al Mapa</span>
             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform relative z-10" />

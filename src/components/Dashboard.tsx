@@ -45,7 +45,7 @@ export default function Dashboard() {
       {/* Background Image with Alpha */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none"
-        style={{ backgroundImage: 'url(mathbg.png)' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}mathbg.png)` }}
       />
 
       <ThemeToggle />
@@ -93,7 +93,7 @@ export default function Dashboard() {
                   </button>
                   <button 
                     onClick={() => setShowStory(true)}
-                    className="text-[14px] cursor-pointer bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded border border-blue-500/20 hover:bg-blue-500/20 transition-smooth flex items-center gap-1 cursor-pointer"
+                    className="text-[14px] cursor-pointer bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded border border-blue-500/20 hover:bg-blue-500/20 transition-smooth flex items-center gap-1"
                   >
                     <BookOpen className="w-3 h-3" />
                     Historia

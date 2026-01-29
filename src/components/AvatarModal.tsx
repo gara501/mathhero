@@ -33,7 +33,7 @@ export default function AvatarModal({ isOpen, onClose, selectedCharacter, onSele
           >
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 text-text-tertiary hover:text-white transition-colors z-10"
+              className="absolute top-6 right-6 text-text-tertiary hover:text-white transition-colors z-10 cursor-pointer"
             >
               <X className="w-8 h-8" />
             </button>
@@ -86,7 +86,7 @@ export default function AvatarModal({ isOpen, onClose, selectedCharacter, onSele
               <div className="mt-8 flex justify-end">
                 <button
                   onClick={onClose}
-                  className="px-8 py-3 bg-accent-yellow text-dark-bg font-black rounded-xl hover:scale-105 transition-smooth uppercase tracking-wider"
+                  className="px-8 py-3 bg-accent-yellow text-dark-bg font-black rounded-xl hover:scale-105 transition-smooth uppercase tracking-wider cursor-pointer"
                 >
                   Confirmar Selección
                 </button>

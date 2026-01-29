@@ -40,7 +40,7 @@ export default function StoryDialogue({ slides, onClose }: StoryDialogueProps) {
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 z-50 p-2 bg-black/60 hover:bg-black/90 rounded-full text-white transition-colors border border-white/20 shadow-xl"
+          className="absolute top-4 right-4 z-50 p-2 bg-black/60 hover:bg-black/90 rounded-full text-white transition-colors border border-white/20 shadow-xl cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -91,7 +91,7 @@ export default function StoryDialogue({ slides, onClose }: StoryDialogueProps) {
                 {currentSlide > 0 ? (
                   <button 
                     onClick={handlePrev}
-                    className="flex items-center gap-2 text-text-tertiary hover:text-accent-yellow transition-colors font-bold uppercase tracking-widest text-xs py-2 px-4 bg-white/5 rounded-lg"
+                    className="flex items-center gap-2 text-text-tertiary hover:text-accent-yellow transition-colors font-bold uppercase tracking-widest text-xs py-2 px-4 bg-white/5 rounded-lg cursor-pointer"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     Regresar
@@ -112,7 +112,7 @@ export default function StoryDialogue({ slides, onClose }: StoryDialogueProps) {
 
                 <button 
                   onClick={handleNext}
-                  className="flex items-center gap-2 bg-accent-yellow text-dark-bg px-8 py-3 rounded-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-glow uppercase tracking-wider text-sm"
+                  className="flex items-center gap-2 bg-accent-yellow text-dark-bg px-8 py-3 rounded-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-glow uppercase tracking-wider text-sm cursor-pointer"
                 >
                   {currentSlide === slides.length - 1 ? '¡Iniciar mi viaje!' : 'Siguiente'}
                   {currentSlide < slides.length - 1 && <ChevronRight className="w-5 h-5" />}

@@ -54,7 +54,7 @@ export default function Profile() {
       {/* Background Image with Alpha */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none"
-        style={{ backgroundImage: 'url(mathbg.png)' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}mathbg.png)` }}
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -66,7 +66,7 @@ export default function Profile() {
         >
           <button
             onClick={() => navigate('/dashboard')}
-            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary hover:cursor-pointer dark:hover:text-text-tertiary hover:text-text-primary transition-smooth"
+            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary cursor-pointer dark:hover:text-text-tertiary hover:text-text-primary transition-smooth"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Dashboard</span>
@@ -106,7 +106,7 @@ export default function Profile() {
               
               <button
                 onClick={() => setIsAvatarModalOpen(true)}
-                className="mt-4 text-[10px] uppercase font-black text-accent-yellow/60 hover:text-accent-yellow transition-colors tracking-tighter"
+                className="mt-4 text-[10px] uppercase font-black text-accent-yellow/60 hover:text-accent-yellow transition-colors tracking-tighter cursor-pointer"
               >
                 Cambiar Avatar
               </button>
