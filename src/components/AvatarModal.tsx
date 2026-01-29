@@ -33,7 +33,7 @@ export default function AvatarModal({ isOpen, onClose, selectedCharacter, onSele
           >
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 text-text-tertiary hover:text-white transition-colors z-10 cursor-pointer"
+              className="absolute top-6 right-6 text-tertiary hover:text-white transition-colors z-10 cursor-pointer"
             >
               <X className="w-8 h-8" />
             </button>
@@ -42,7 +42,7 @@ export default function AvatarModal({ isOpen, onClose, selectedCharacter, onSele
               <h2 className="text-3xl font-black gradient-text mb-2 uppercase tracking-tighter">
                 Selecciona tu Avatar
               </h2>
-              <p className="text-text-secondary mb-8">
+              <p className="text-secondary mb-8">
                 Elige el rostro que te representará en el salón de la fama.
               </p>
 
@@ -71,7 +71,7 @@ export default function AvatarModal({ isOpen, onClose, selectedCharacter, onSele
                       />
                     </div>
                     <p className={`text-[10px] font-bold text-center uppercase tracking-tighter line-clamp-1
-                      ${selectedCharacter === char.id ? 'text-accent-yellow' : 'text-text-secondary'}`}>
+                      ${selectedCharacter === char.id ? 'text-accent-yellow' : 'text-secondary'}`}>
                       {char.name}
                     </p>
                     {selectedCharacter === char.id && (

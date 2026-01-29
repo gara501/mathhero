@@ -79,7 +79,7 @@ export default function StoryDialogue({ slides, onClose }: StoryDialogueProps) {
                 exit={{ opacity: 0, y: -10 }}
                 className="min-h-[100px] mb-8"
               >
-                <p className="text-text-primary dark:text-white text-base md:text-xl leading-relaxed font-medium text-center italic">
+                <p className="text-primary dark:text-white text-base md:text-xl leading-relaxed font-medium text-center italic">
                   "{slides[currentSlide].text}"
                 </p>
               </motion.div>
@@ -91,7 +91,7 @@ export default function StoryDialogue({ slides, onClose }: StoryDialogueProps) {
                 {currentSlide > 0 ? (
                   <button 
                     onClick={handlePrev}
-                    className="flex items-center gap-2 text-text-tertiary hover:text-accent-yellow transition-colors font-bold uppercase tracking-widest text-xs py-2 px-4 bg-white/5 rounded-lg cursor-pointer"
+                    className="flex items-center gap-2 text-tertiary hover:text-accent-yellow transition-colors font-bold uppercase tracking-widest text-xs py-2 px-4 bg-white/5 rounded-lg cursor-pointer"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     Regresar

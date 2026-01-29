@@ -147,7 +147,7 @@ export default function WorldMap() {
             >
               <button 
                 onClick={() => setSelectedWorld(null)}
-                className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -158,7 +158,7 @@ export default function WorldMap() {
                     <MapPin className="w-8 h-8" />
                     {selectedWorld.name}
                   </h3>
-                  <p className="text-text-secondary mt-2">{selectedWorld.description}</p>
+                  <p className="text-secondary mt-2">{selectedWorld.description}</p>
                 </div>
 
                 <div className="bg-dark-bg/50 rounded-2xl p-6 border-2 border-white/5">

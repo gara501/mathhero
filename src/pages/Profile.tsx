@@ -66,7 +66,7 @@ export default function Profile() {
         >
           <button
             onClick={() => navigate('/dashboard')}
-            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary cursor-pointer dark:hover:text-text-tertiary hover:text-text-primary transition-smooth"
+            className="flex items-center gap-2 text-secondary dark:text-secondary cursor-pointer dark:hover:text-tertiary hover:text-primary transition-smooth"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Dashboard</span>
@@ -118,7 +118,7 @@ export default function Profile() {
               transition={{ delay: 0.1 }}
               className="space-y-4"
             >
-              <h3 className="text-xl font-bold flex items-center gap-2 text-text-primary dark:text-text-tertiary px-2">
+              <h3 className="text-xl font-bold flex items-center gap-2 text-primary dark:text-tertiary px-2">
                 <Shield className="w-5 h-5 text-accent-yellow" /> Rendimiento de Héroe
               </h3>
               <div className="grid grid-cols-1 gap-4">
@@ -139,8 +139,8 @@ export default function Profile() {
             >
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h2 className="text-2xl font-bold text-text-primary dark:text-text-tertiary">Logros de Héroe</h2>
-                  <p className="text-text-secondary dark:text-text-secondary">Tu progreso desbloquea nuevas distinciones y habilidades.</p>
+                  <h2 className="text-2xl font-bold text-primary dark:text-tertiary">Logros de Héroe</h2>
+                  <p className="text-secondary dark:text-secondary">Tu progreso desbloquea nuevas distinciones y habilidades.</p>
                 </div>
                 <div className="flex items-center gap-2 bg-accent-yellow/10 px-4 py-2 rounded-full border border-accent-yellow/20">
                   <Star className="w-5 h-5 text-accent-yellow fill-accent-yellow" />
@@ -151,7 +151,7 @@ export default function Profile() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Medals Section */}
                 <div className="space-y-4">
-                  <h4 className="text-sm font-black uppercase tracking-widest text-text-tertiary flex items-center gap-2">
+                  <h4 className="text-sm font-black uppercase tracking-widest text-tertiary flex items-center gap-2">
                     <Award className="w-4 h-4 text-accent-yellow" /> Medallas Ganadas
                   </h4>
                   <div className="grid grid-cols-5 gap-3">
@@ -173,17 +173,17 @@ export default function Profile() {
                   </div>
                   {earnedMedals.length > 0 ? (
                     <div className="mt-4 p-4 bg-white/5 rounded-2xl border border-white/5">
-                      <p className="text-[10px] text-text-tertiary uppercase font-bold mb-1">Última Distinción</p>
+                      <p className="text-[10px] text-tertiary uppercase font-bold mb-1">Última Distinción</p>
                       <p className="text-lg font-black text-white">{earnedMedals[earnedMedals.length - 1].name}</p>
                     </div>
                   ) : (
-                    <p className="text-sm text-text-tertiary italic">Completa niveles para ganar medallas</p>
+                    <p className="text-sm text-tertiary italic">Completa niveles para ganar medallas</p>
                   )}
                 </div>
 
                 {/* Skills Section */}
                 <div className="space-y-4">
-                  <h4 className="text-sm font-black uppercase tracking-widest text-text-tertiary flex items-center gap-2">
+                  <h4 className="text-sm font-black uppercase tracking-widest text-tertiary flex items-center gap-2">
                     <Zap className="w-4 h-4 text-orange-400" /> Habilidades Desbloqueadas
                   </h4>
                   <div className="space-y-3 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
@@ -199,13 +199,13 @@ export default function Profile() {
                           <div className="text-2xl">{skill.icon}</div>
                           <div>
                             <p className="text-sm font-bold text-white leading-none mb-1">{skill.name}</p>
-                            <p className="text-[10px] text-text-tertiary">{skill.description}</p>
+                            <p className="text-[10px] text-tertiary">{skill.description}</p>
                           </div>
                         </motion.div>
                       )).reverse() // Show newest skills first
                     ) : (
                       <div className="h-32 flex flex-col items-center justify-center border-2 border-dashed border-white/5 rounded-2xl">
-                        <p className="text-sm text-text-tertiary italic">Sin habilidades aún</p>
+                        <p className="text-sm text-tertiary italic">Sin habilidades aún</p>
                       </div>
                     )}
                   </div>

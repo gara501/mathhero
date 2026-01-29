@@ -25,7 +25,7 @@ export default function StatsCard({ title, value, trend, subtitle, icon }: Stats
           <h3 className="text-3xl font-bold text-primary dark:text-primary">{value}</h3>
         </div>
         {icon && (
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-yellow to-gradient-to flex items-center justify-center ml-4 dark:text-text-primary">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-yellow to-gradient-to flex items-center justify-center ml-4 dark:text-primary">
             {icon}
           </div>
         )}
@@ -47,7 +47,7 @@ export default function StatsCard({ title, value, trend, subtitle, icon }: Stats
               <span>{Math.abs(trend)}%</span>
             </div>
           )}
-          {subtitle && <p className="text-xs text-text-tertiary">{subtitle}</p>}
+          {subtitle && <p className="text-xs text-tertiary">{subtitle}</p>}
         </div>
       )}
     </motion.div>

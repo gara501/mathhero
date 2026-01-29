@@ -84,7 +84,7 @@ export default function Dashboard() {
                   Bienvenido, <span className="text-accent-yellow font-bold uppercase tracking-wider">{username}</span>
                 </p>
                 <div className="flex items-center gap-3">
-                  <span className="text-text-tertiary text-sm italic !font-normal">alias {heroName}</span>
+                  <span className="text-tertiary text-sm italic !font-normal">alias {heroName}</span>
                   <button 
                     onClick={() => navigate('/profile')}
                     className="text-[14px] bg-accent-yellow/10 dark:bg-accent-yellow/10 text-accent-red px-2 py-0.5 rounded border border-accent-red/20 hover:bg-accent-red/20 dark:hover:bg-accent-red/20 transition-smooth cursor-pointer"
@@ -117,7 +117,7 @@ export default function Dashboard() {
 
         {/* Interactive Map */}
         <motion.div variants={itemVariants} className="mb-12">
-          <h2 className="text-2xl font-bold text-text-primary mb-6">Explora el Reino</h2>
+          <h2 className="text-2xl font-bold text-primary mb-6">Explora el Reino</h2>
           <WorldMap />
         </motion.div>
        

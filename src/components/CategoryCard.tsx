@@ -71,7 +71,7 @@ export default function CategoryCard({
       <h3
         className={`
         text-xl font-bold mb-2
-        ${isHighlight ? 'text-dark-bg' : 'text-text-primary dark:text-text-tertiary'}
+        ${isHighlight ? 'text-dark-bg' : 'text-primary dark:text-tertiary'}
       `}
       >
         {title}
@@ -80,7 +80,7 @@ export default function CategoryCard({
       <p
         className={`
         text-sm mb-3
-        ${isHighlight ? 'text-dark-bg/70 dark:text-text-secondary' : 'text-text-secondary dark:text-text-secondary'}
+        ${isHighlight ? 'text-dark-bg/70 dark:text-secondary' : 'text-secondary dark:text-secondary'}
       `}
       >
         {description}
@@ -91,7 +91,7 @@ export default function CategoryCard({
         <div
           className={`
           mt-4 p-3 rounded-xl font-mono text-sm
-          ${isHighlight ? 'bg-dark-bg/10 text-dark-bg dark:text-text-primary' : 'bg-dark-card/50 text-text-primary dark:text-text-tertiary'}
+          ${isHighlight ? 'bg-dark-bg/10 text-dark-bg dark:text-primary' : 'bg-dark-card/50 text-primary dark:text-tertiary'}
         `}
         >
           {formula}

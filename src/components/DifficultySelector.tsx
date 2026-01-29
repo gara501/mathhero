@@ -16,7 +16,7 @@ const difficulties: { value: Difficulty; label: string; color: string }[] = [
 export default function DifficultySelector({ selected, onSelect }: DifficultySelectorProps) {
   return (
     <div className="card">
-      <h3 className="text-lg font-semibold mb-4 text-text-primary">Dificultad</h3>
+      <h3 className="text-lg font-semibold mb-4 text-primary">Dificultad</h3>
       <div className="flex gap-3">
         {difficulties.map(({ value, label, color }) => (
           <motion.button
@@ -27,7 +27,7 @@ export default function DifficultySelector({ selected, onSelect }: DifficultySel
               ${
                 selected === value
                   ? `bg-gradient-to-r ${color} text-white shadow-lg`
-                  : 'bg-dark-card/50 text-text-secondary hover:bg-dark-card-hover'
+                  : 'bg-dark-card/50 text-secondary hover:bg-dark-card-hover'
               }
             `}
             whileHover={{ scale: 1.05 }}

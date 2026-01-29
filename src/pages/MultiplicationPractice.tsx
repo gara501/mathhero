@@ -45,7 +45,7 @@ export default function MultiplicationPractice() {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors cursor-pointer"
+            className="flex items-center gap-2 text-secondary hover:text-primary transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Reino</span>
@@ -97,7 +97,7 @@ export default function MultiplicationPractice() {
                     <span className="text-xs font-black uppercase tracking-widest">Maestro de la Isla</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">
                     "Increíble, has llegado al Valle de las Multiplicaciones. Aquí los números crecen rápido, ¡necesitarás toda tu concentración!"
                   </h2>
 
@@ -122,7 +122,7 @@ export default function MultiplicationPractice() {
             >
               <div className="text-center mb-8">
                 <h1 className="text-4xl font-black gradient-text">Valle Multiplicación</h1>
-                <p className="text-text-tertiary font-bold">Arrastra el número correcto para completar la multiplicación</p>
+                <p className="text-tertiary font-bold">Arrastra el número correcto para completar la multiplicación</p>
               </div>
 
               <motion.div 
@@ -158,7 +158,7 @@ export default function MultiplicationPractice() {
               >
                 <button 
                   onClick={() => setShowHelpModal(false)}
-                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -171,7 +171,7 @@ export default function MultiplicationPractice() {
 
                   <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
                     <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed mb-4">
                         Multiplicar es como hacer una "suma superrápida". Significa sumar el mismo número varias veces.
                       </p>
                       <div className="bg-dark-bg p-4 rounded-xl border border-white/10 font-mono text-center">
@@ -181,7 +181,7 @@ export default function MultiplicationPractice() {
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
                       <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Consejo del Mago</h4>
-                      <p className="text-sm text-text-secondary dark:text-white/70 italic">
+                      <p className="text-sm text-secondary dark:text-white/70 italic">
                         "¡Arrastra las piezas con calma! Si conoces las tablas de multiplicar, este nivel será pan comido para un aprendiz como tú."
                       </p>
                     </div>

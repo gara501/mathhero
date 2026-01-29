@@ -135,7 +135,7 @@ export default function EquationMatcher({
           <p className="text-2xl font-black text-white">{currentRound} / {totalRounds}</p>
         </div>
         <div className="bg-dark-card/80 border-2 border-white/5 px-6 py-2 rounded-2xl shadow-xl">
-          <span className="text-text-tertiary font-black uppercase text-xs tracking-widest">Objetivo</span>
+          <span className="text-tertiary font-black uppercase text-xs tracking-widest">Objetivo</span>
           <p className="text-2xl font-black text-white">Completar 10</p>
         </div>
       </div>
@@ -164,15 +164,15 @@ export default function EquationMatcher({
               {eq.userValue || '?'}
             </div>
 
-            <span className="text-3xl font-black text-text-primary italic">{eq.operator}</span>
+            <span className="text-3xl font-black text-primary italic">{eq.operator}</span>
             
-            <div className="w-16 h-16 rounded-xl border-4 border-gray-300 flex items-center justify-center text-3xl font-black text-text-primary bg-white/10">
+            <div className="w-16 h-16 rounded-xl border-4 border-gray-300 flex items-center justify-center text-3xl font-black text-primary bg-white/10">
               {eq.term2}
             </div>
 
-            <span className="text-3xl font-black text-text-primary">=</span>
+            <span className="text-3xl font-black text-primary">=</span>
 
-            <div className="w-20 h-16 rounded-xl border-4 border-gray-300 flex items-center justify-center text-3xl font-black text-text-primary bg-white/10">
+            <div className="w-20 h-16 rounded-xl border-4 border-gray-300 flex items-center justify-center text-3xl font-black text-primary bg-white/10">
               {eq.result}
             </div>
 

@@ -143,7 +143,7 @@ export default function FunctionPractice() {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => navigate('/dashboard')}
-            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-secondary dark:text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Reino</span>
@@ -192,7 +192,7 @@ export default function FunctionPractice() {
                     <span className="text-xs font-black uppercase tracking-widest">Maestro de Funciones</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">
                     "Las funciones son el lenguaje del universo. Cada número sigue una regla secreta... ¿Podrás descifrarla?"
                   </h2>
 
@@ -226,7 +226,7 @@ export default function FunctionPractice() {
                   >
                     <div className="p-8 border-t-2 border-accent-yellow/10">
                       <h4 className="text-xl font-bold text-accent-yellow mb-4">¿Qué estamos buscando?</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed">
                         En este nivel, los números no crecen de forma simple (como +2 o +5). Aquí siguen una <strong>función matemática</strong>. 
                         Por ejemplo, en la secuencia 1, 4, 9, 16... cada número es la posición al cuadrado (1², 2², 3², 4²). 
                         Tu misión es encontrar la regla y completar el término que falta.
@@ -245,11 +245,11 @@ export default function FunctionPractice() {
               <div className="flex justify-between items-end mb-8">
                 <div>
                   <h1 className="text-3xl font-bold gradient-text">Maestro de Funciones</h1>
-                  <p className="text-text-tertiary dark:text-white/60">Descifra la regla de la secuencia</p>
+                  <p className="text-tertiary dark:text-white/60">Descifra la regla de la secuencia</p>
                 </div>
                 <div className="card !py-2 !px-4">
-                  <p className="text-xs text-text-tertiary dark:text-white/40 uppercase tracking-widest mb-1">Poder Acumulado</p>
-                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-text-secondary">/ 10</span></p>
+                  <p className="text-xs text-tertiary dark:text-white/40 uppercase tracking-widest mb-1">Poder Acumulado</p>
+                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-secondary">/ 10</span></p>
                 </div>
               </div>
 
@@ -259,7 +259,7 @@ export default function FunctionPractice() {
                 {problem && (
                   <div className="w-full text-center p-4">
                     <div className="mb-12">
-                      <p className="text-xl text-text-tertiary dark:text-white/60 mb-8 italic">¿Qué número completa el patrón mágico?</p>
+                      <p className="text-xl text-tertiary dark:text-white/60 mb-8 italic">¿Qué número completa el patrón mágico?</p>
                       
                       <div className="flex flex-wrap justify-center gap-4">
                         {problem.sequence.map((num, idx) => (
@@ -272,7 +272,7 @@ export default function FunctionPractice() {
                               w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center text-2xl md:text-3xl font-black border-2
                               ${idx === problem.missingIndex 
                                 ? 'bg-accent-yellow/10 border-accent-yellow text-accent-yellow shadow-glow-yellow' 
-                                : 'bg-dark-bg border-white/5 text-text-primary dark:text-white opacity-80'}
+                                : 'bg-dark-bg border-white/5 text-primary dark:text-white opacity-80'}
                             `}
                           >
                             {idx === problem.missingIndex ? '?' : num}
@@ -309,7 +309,7 @@ export default function FunctionPractice() {
                             </button>
                             <button
                               onClick={() => setShowAnswer(true)}
-                              className="px-6 h-14 bg-white/5 text-text-tertiary dark:text-white rounded-xl hover:bg-white/10 transition-all cursor-pointer flex items-center gap-2"
+                              className="px-6 h-14 bg-white/5 text-tertiary dark:text-white rounded-xl hover:bg-white/10 transition-all cursor-pointer flex items-center gap-2"
                             >
                               <Eye className="w-5 h-5" />
                             </button>
@@ -319,7 +319,7 @@ export default function FunctionPractice() {
                         <div className="space-y-6">
                           <div className="card bg-accent-yellow/5 border-accent-yellow/20">
                             <p className="text-sm text-accent-yellow uppercase font-black tracking-widest mb-1">Regla Revelada</p>
-                            <p className="text-2xl font-bold text-text-primary dark:text-white">{problem.functionName}: {problem.formula}</p>
+                            <p className="text-2xl font-bold text-primary dark:text-white">{problem.functionName}: {problem.formula}</p>
                           </div>
 
                           <button
@@ -388,7 +388,7 @@ export default function FunctionPractice() {
               >
                 <button 
                   onClick={() => setShowHelpModal(false)}
-                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -401,7 +401,7 @@ export default function FunctionPractice() {
 
                   <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
                     <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed mb-4">
                         Cada secuencia sigue una de estas reglas mágicas. Observa cómo cambian los números para identificar cuál se está aplicando:
                       </p>
                       
@@ -412,7 +412,7 @@ export default function FunctionPractice() {
                               <span className="font-bold text-accent-yellow">{fn.name}</span>
                               <code className="text-xs bg-dark-bg px-2 py-1 rounded text-orange-400">{fn.formula}</code>
                             </div>
-                            <p className="text-xs text-text-tertiary dark:text-white/40">{fn.description}</p>
+                            <p className="text-xs text-tertiary dark:text-white/40">{fn.description}</p>
                           </div>
                         ))}
                       </div>
@@ -420,7 +420,7 @@ export default function FunctionPractice() {
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
                       <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Consejo del Mago</h4>
-                      <p className="text-sm text-text-secondary dark:text-white/70 italic">
+                      <p className="text-sm text-secondary dark:text-white/70 italic">
                         "Si notas que los números crecen muy rápido, busca una regla cuadrática o cúbica. Si crecen duplicándose, estás ante una potencia de 2."
                       </p>
                     </div>

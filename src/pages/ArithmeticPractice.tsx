@@ -104,7 +104,7 @@ export default function ArithmeticPractice() {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => navigate('/dashboard')}
-            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-secondary dark:text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Reino</span>
@@ -153,7 +153,7 @@ export default function ArithmeticPractice() {
                     <span className="text-xs font-black uppercase tracking-widest">Maestro de Aritmética</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">
                     "Las series aritméticas crecen paso a paso, con un ritmo constante. ¿Podrás encontrar la diferencia oculta?"
                   </h2>
 
@@ -187,7 +187,7 @@ export default function ArithmeticPractice() {
                   >
                     <div className="p-8 border-t-2 border-accent-yellow/10">
                       <h4 className="text-xl font-bold text-accent-yellow mb-4">¿Qué es una Serie Aritmética?</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed">
                         Es una secuencia donde cada número se obtiene sumando siempre la misma cantidad al anterior. 
                         Por ejemplo, en 5, 8, 11, 14... la diferencia es +3. 
                         Tu misión es encontrar esa diferencia y completar el número que falta.
@@ -206,11 +206,11 @@ export default function ArithmeticPractice() {
               <div className="flex justify-between items-end mb-8">
                 <div>
                   <h1 className="text-3xl font-bold gradient-text">Series Aritméticas</h1>
-                  <p className="text-text-tertiary dark:text-white/60">Encuentra el número que falta en la serie</p>
+                  <p className="text-tertiary dark:text-white/60">Encuentra el número que falta en la serie</p>
                 </div>
                 <div className="card !py-2 !px-4">
-                  <p className="text-xs text-text-tertiary dark:text-white/40 uppercase tracking-widest mb-1">Poder Acumulado</p>
-                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-text-secondary">/ 10</span></p>
+                  <p className="text-xs text-tertiary dark:text-white/40 uppercase tracking-widest mb-1">Poder Acumulado</p>
+                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-secondary">/ 10</span></p>
                 </div>
               </div>
 
@@ -220,7 +220,7 @@ export default function ArithmeticPractice() {
                 {problem && (
                   <div className="w-full text-center p-4">
                     <div className="mb-12">
-                      <p className="text-xl text-text-tertiary dark:text-white/60 mb-8 italic">¿Qué número falta en este camino?</p>
+                      <p className="text-xl text-tertiary dark:text-white/60 mb-8 italic">¿Qué número falta en este camino?</p>
                       
                       <div className="flex flex-wrap justify-center gap-4">
                         {problem.sequence.map((num, idx) => (
@@ -233,7 +233,7 @@ export default function ArithmeticPractice() {
                               w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center text-xl md:text-2xl font-black border-2
                               ${idx === problem.missingIndex 
                                 ? 'bg-accent-yellow/10 border-accent-yellow text-accent-yellow shadow-glow-yellow' 
-                                : 'bg-dark-bg border-white/5 text-text-primary dark:text-white opacity-80'}
+                                : 'bg-dark-bg border-white/5 text-primary dark:text-white opacity-80'}
                             `}
                           >
                             {idx === problem.missingIndex ? '?' : num}
@@ -270,7 +270,7 @@ export default function ArithmeticPractice() {
                             </button>
                             <button
                               onClick={() => setShowAnswer(true)}
-                              className="px-6 h-14 bg-white/5 text-text-tertiary dark:text-white rounded-xl hover:bg-white/10 transition-all cursor-pointer flex items-center gap-2"
+                              className="px-6 h-14 bg-white/5 text-tertiary dark:text-white rounded-xl hover:bg-white/10 transition-all cursor-pointer flex items-center gap-2"
                             >
                               <Eye className="w-5 h-5" />
                             </button>
@@ -280,7 +280,7 @@ export default function ArithmeticPractice() {
                         <div className="space-y-6">
                           <div className="card bg-accent-yellow/5 border-accent-yellow/20">
                             <p className="text-sm text-accent-yellow uppercase font-black tracking-widest mb-1">Secreto del Camino</p>
-                            <p className="text-2xl font-bold text-text-primary dark:text-white">Diferencia común (d) = {problem.commonDifference}</p>
+                            <p className="text-2xl font-bold text-primary dark:text-white">Diferencia común (d) = {problem.commonDifference}</p>
                           </div>
 
                           <button
@@ -349,7 +349,7 @@ export default function ArithmeticPractice() {
               >
                 <button 
                   onClick={() => setShowHelpModal(false)}
-                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -366,14 +366,14 @@ export default function ArithmeticPractice() {
                       <div className="bg-dark-bg p-4 rounded-xl border border-white/10 font-mono text-center mb-4">
                         <span className="text-accent-yellow">aₙ = a₁ + (n-1)d</span>
                       </div>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed">
                         Donde <strong>a₁</strong> es el primer término y <strong>d</strong> es el salto constante entre números.
                       </p>
                     </div>
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
                       <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Truco del Mago</h4>
-                      <p className="text-sm text-text-secondary dark:text-white/70 italic">
+                      <p className="text-sm text-secondary dark:text-white/70 italic">
                         "¡Resta dos números seguidos de la serie! Esa diferencia es la llave que abre el siguiente número."
                       </p>
                     </div>

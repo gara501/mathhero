@@ -45,7 +45,7 @@ export default function DivisionPractice() {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors cursor-pointer"
+            className="flex items-center gap-2 text-secondary hover:text-primary transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Reino</span>
@@ -97,7 +97,7 @@ export default function DivisionPractice() {
                     <span className="text-xs font-black uppercase tracking-widest">Maestro de la Isla</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">
                     "¡Increíble! Has llegado al Templo de la División. Aquí aprenderás a repartir el poder de los números equitativamente."
                   </h2>
 
@@ -122,7 +122,7 @@ export default function DivisionPractice() {
             >
               <div className="text-center mb-8">
                 <h1 className="text-4xl font-black gradient-text">Templo División</h1>
-                <p className="text-text-tertiary font-bold">Arrastra el número correcto para completar la división</p>
+                <p className="text-tertiary font-bold">Arrastra el número correcto para completar la división</p>
               </div>
 
               <motion.div 
@@ -158,7 +158,7 @@ export default function DivisionPractice() {
               >
                 <button 
                   onClick={() => setShowHelpModal(false)}
-                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -171,18 +171,18 @@ export default function DivisionPractice() {
 
                   <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
                     <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed mb-4">
                         Dividir es repartir un número en partes iguales. Es la operación contraria a la multiplicación.
                       </p>
                       <div className="bg-dark-bg p-4 rounded-xl border border-white/10 font-mono text-center">
                         <span className="text-accent-yellow">12 ÷ 3</span> = <span className="text-accent-yellow">4</span>
-                        <div className="text-xs text-text-tertiary mt-1">Porque 4 x 3 = 12</div>
+                        <div className="text-xs text-tertiary mt-1">Porque 4 x 3 = 12</div>
                       </div>
                     </div>
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
                       <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Consejo del Mago</h4>
-                      <p className="text-sm text-text-secondary dark:text-white/70 italic">
+                      <p className="text-sm text-secondary dark:text-white/70 italic">
                         "¡Piensa en las multiplicaciones! Si sabes que 2 x 5 = 10, entonces sabrás que 10 ÷ 2 = 5 automáticamente."
                       </p>
                     </div>

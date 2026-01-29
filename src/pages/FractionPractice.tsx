@@ -270,7 +270,7 @@ export default function FractionPractice() {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-secondary dark:text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Reino</span>
@@ -319,7 +319,7 @@ export default function FractionPractice() {
                     <span className="text-xs font-black uppercase tracking-widest">Maestro de la Isla</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">
                     "Las fracciones son partes de un todo. Mira con atención las formas y elige la proporción correcta del hechizo."
                   </h2>
 
@@ -342,11 +342,11 @@ export default function FractionPractice() {
               <div className="flex justify-between items-end mb-8">
                 <div>
                   <h1 className="text-3xl font-bold gradient-text">Visión de Fracciones</h1>
-                  <p className="text-text-tertiary">Elige la fracción que representa la parte iluminada</p>
+                  <p className="text-tertiary">Elige la fracción que representa la parte iluminada</p>
                 </div>
                 <div className="card !py-2 !px-4">
-                  <p className="text-xs text-text-tertiary uppercase tracking-widest mb-1">Poder Acumulado</p>
-                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-text-secondary">/ 10</span></p>
+                  <p className="text-xs text-tertiary uppercase tracking-widest mb-1">Poder Acumulado</p>
+                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-secondary">/ 10</span></p>
                 </div>
               </div>
 
@@ -369,7 +369,7 @@ export default function FractionPractice() {
                               onClick={() => handleOptionClick(opt)}
                               className="group relative h-20 bg-dark-bg/40 border-4 border-white/5 rounded-2xl hover:border-accent-yellow hover:bg-dark-bg transition-all cursor-pointer overflow-hidden flex items-center justify-center"
                             >
-                              <div className="text-3xl font-black italic text-text-primary dark:text-white group-hover:text-accent-yellow transition-colors flex flex-col items-center leading-none">
+                              <div className="text-3xl font-black italic text-primary dark:text-white group-hover:text-accent-yellow transition-colors flex flex-col items-center leading-none">
                                 <span>{opt.split('/')[0]}</span>
                                 <div className="w-10 h-1 bg-current opacity-20 my-1" />
                                 <span>{opt.split('/')[1]}</span>
@@ -431,7 +431,7 @@ export default function FractionPractice() {
               >
                 <button 
                   onClick={() => setShowHelpModal(false)}
-                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -445,7 +445,7 @@ export default function FractionPractice() {
                   <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
                     <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
                       <h4 className="text-lg font-bold text-accent-yellow mb-2">¿Cómo identificar una fracción?</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed mb-4">
                         1. **Cuenta el total** de partes iguales (este es el **denominador**, el número de abajo).
                         2. **Cuenta las partes coloreadas** (este es el **numerador**, el número de arriba).
                       </p>
@@ -457,7 +457,7 @@ export default function FractionPractice() {
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
                       <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Formas Comunes</h4>
-                      <ul className="text-sm text-text-secondary dark:text-white/70 space-y-2">
+                      <ul className="text-sm text-secondary dark:text-white/70 space-y-2">
                         <li>• **Círculo**: Como una pizza cortada en porciones.</li>
                         <li>• **Cuadrícula**: Un tablero con casillas iluminadas.</li>
                         <li>• **Barra**: Una vara de poder dividida en segmentos.</li>

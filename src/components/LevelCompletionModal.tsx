@@ -81,7 +81,7 @@ export default function LevelCompletionModal({
               <h1 className="text-4xl font-black gradient-text mb-2 uppercase tracking-tighter">
                 ¡Nivel Superado!
               </h1>
-              <p className="text-text-tertiary font-bold tracking-widest text-xs uppercase opacity-60">
+              <p className="text-tertiary font-bold tracking-widest text-xs uppercase opacity-60">
                 Has conquistado el {levelName}
               </p>
             </motion.div>
@@ -95,7 +95,7 @@ export default function LevelCompletionModal({
             className="bg-dark-bg/60 rounded-3xl p-6 border-2 border-white/5 mb-10 flex items-center justify-center gap-4 relative z-10"
           >
             <div className="text-center">
-              <p className="text-text-secondary text-[10px] uppercase font-black mb-1 opacity-50">Puntos Ganados</p>
+              <p className="text-secondary text-[10px] uppercase font-black mb-1 opacity-50">Puntos Ganados</p>
               <div className="flex items-center gap-2">
                 <Star className="text-accent-yellow fill-accent-yellow w-5 h-5" />
                 <span className="text-3xl font-black text-accent-yellow">+{points}</span>

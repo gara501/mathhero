@@ -123,7 +123,7 @@ export default function CartesianChallenge() {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-secondary dark:text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Reino</span>
@@ -172,7 +172,7 @@ export default function CartesianChallenge() {
                     <span className="text-xs font-black uppercase tracking-widest">Maestro del Mapa Estelar</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">
                     "Las formas mágicas se han dispersado por el mapa de coordenadas. ¿Puedes localizarlas usando tu brújula matemática?"
                   </h2>
 
@@ -196,11 +196,11 @@ export default function CartesianChallenge() {
               <div className="flex justify-between items-end">
                 <div>
                   <h1 className="text-3xl font-bold gradient-text">Reto Cartesiano</h1>
-                  <p className="text-text-tertiary">Traza el punto en las coordenadas dadas</p>
+                  <p className="text-tertiary">Traza el punto en las coordenadas dadas</p>
                 </div>
                 <div className="card !py-2 !px-4">
-                  <p className="text-xs text-text-tertiary uppercase tracking-widest mb-1">Puntería Mágica</p>
-                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-text-secondary">/ 10</span></p>
+                  <p className="text-xs text-tertiary uppercase tracking-widest mb-1">Puntería Mágica</p>
+                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-secondary">/ 10</span></p>
                 </div>
               </div>
 
@@ -284,7 +284,7 @@ export default function CartesianChallenge() {
                                 fontSize="14"
                                 fontWeight="bold"
                                 fill="currentColor"
-                                className="text-text-tertiary"
+                                className="text-tertiary"
                               >
                                 {i}
                               </text>
@@ -299,7 +299,7 @@ export default function CartesianChallenge() {
                                 fontSize="14"
                                 fontWeight="bold"
                                 fill="currentColor"
-                                className="text-text-tertiary"
+                                className="text-tertiary"
                               >
                                 {i}
                               </text>
@@ -359,10 +359,10 @@ export default function CartesianChallenge() {
                 {/* Question & Controls */}
                 <div className="flex flex-col gap-8">
                   <div className="text-center">
-                    <h3 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-2">
+                    <h3 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-2">
                       Traza el punto <span className="text-accent-yellow">({problem?.targetX}, {problem?.targetY})</span> en el plano.
                     </h3>
-                    <p className="text-text-tertiary text-lg italic">
+                    <p className="text-tertiary text-lg italic">
                       {selectedPoint 
                         ? `Punto seleccionado: (${selectedPoint.x}, ${selectedPoint.y})` 
                         : "Haz clic en una intersección para marcar el punto"}
@@ -436,7 +436,7 @@ export default function CartesianChallenge() {
               >
                 <button 
                   onClick={() => setShowHelpModal(false)}
-                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -450,21 +450,21 @@ export default function CartesianChallenge() {
                   <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
                     <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
                       <h4 className="text-lg font-bold text-accent-yellow mb-2">El Secreto de las Coordenadas (X, Y)</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed mb-4">
                         Para encontrar un objeto en el mapa, sigue estos pasos:
                         <br/>1. **X (Eje Horizontal)**: Camina hacia la derecha hasta llegar al número indicado.
                         <br/>2. **Y (Eje Vertical)**: Vuela hacia arriba hasta llegar al segundo número.
                       </p>
                       
                       <div className="bg-dark-bg p-4 rounded-xl border border-white/10 text-center flex flex-col gap-2">
-                        <div className="text-sm text-text-tertiary uppercase">Ejemplo (4, 2)</div>
+                        <div className="text-sm text-tertiary uppercase">Ejemplo (4, 2)</div>
                         <div className="font-bold text-white">4 a la derecha → 2 hacia arriba ↑</div>
                       </div>
                     </div>
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
                       <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Consejo del Mago Navegante</h4>
-                      <p className="text-sm text-text-secondary dark:text-white/70 italic">
+                      <p className="text-sm text-secondary dark:text-white/70 italic">
                         "¡El Eje X siempre va primero! Piénsalo como correr por el suelo antes de saltar hacia el cielo (Eje Y)."
                       </p>
                     </div>

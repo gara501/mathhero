@@ -24,9 +24,12 @@
   --color-gradient-via: #f59e0b;
   --color-gradient-to: #f97316;
 
-  --color-text-primary: #1a1d29;
-  --color-text-secondary: #6b7280;
-  --color-text-tertiary: #9ca3af;
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
 
   /* Font Family */
   --font-sans: 'Grandstander', system-ui, sans-serif;

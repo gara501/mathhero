@@ -80,12 +80,12 @@ export default function Landing() {
           </motion.div>
           
           <h1 className="text-5xl font-bold gradient-text mb-2">MathHero</h1>
-          <p className="text-text-secondary italic">Conviértete en la leyenda de las matemáticas</p>
+          <p className="text-secondary italic">Conviértete en la leyenda de las matemáticas</p>
         </div>
 
         <form onSubmit={handleStart} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-lg font-semibold text-text-secondary flex items-center gap-2 px-1">
+            <label className="text-lg font-semibold text-secondary flex items-center gap-2 px-1">
               <User className="w-4 h-4" /> Tu Nombre Real
             </label>
             <input
@@ -99,7 +99,7 @@ export default function Landing() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-lg font-semibold text-text-secondary flex items-center gap-2 px-1">
+            <label className="text-lg font-semibold text-secondary flex items-center gap-2 px-1">
               <ShieldCheck className="w-4 h-4" /> Tu Identidad de Héroe
             </label>
             <div className="flex gap-2">
@@ -107,18 +107,18 @@ export default function Landing() {
                 <span className={isGenerating ? 'opacity-50' : 'opacity-100'}>
                   {heroName}
                 </span>
-                {isGenerating && <RefreshCw className="w-4 h-4 animate-spin text-text-tertiary" />}
+                {isGenerating && <RefreshCw className="w-4 h-4 animate-spin text-tertiary" />}
               </div>
               <button
                 type="button"
                 onClick={generateHeroName}
-                className="p-3 bg-dark-card border border-border-color rounded-xl hover:bg-dark-card-hover transition-smooth text-text-secondary cursor-pointer"
+                className="p-3 bg-dark-card border border-border-color rounded-xl hover:bg-dark-card-hover transition-smooth text-secondary cursor-pointer"
                 title="Generar nuevo nombre"
               >
                 <RefreshCw className="w-5 h-5" />
               </button>
             </div>
-            <p className="text-[10px] text-text-tertiary px-1">
+            <p className="text-[10px] text-tertiary px-1">
               Se ha generado un nombre épico para proteger tu identidad.
             </p>
           </div>
@@ -134,7 +134,7 @@ export default function Landing() {
         </form>
 
         <div className="mt-8 text-center">
-            <p className="text-xs text-text-tertiary">
+            <p className="text-xs text-tertiary">
                 Tus datos se guardan localmente para tu próxima sesión.
             </p>
         </div>

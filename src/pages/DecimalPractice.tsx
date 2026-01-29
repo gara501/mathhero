@@ -84,7 +84,7 @@ export default function DecimalPractice() {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-secondary dark:text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Reino</span>
@@ -133,7 +133,7 @@ export default function DecimalPractice() {
                     <span className="text-xs font-black uppercase tracking-widest">Maestro de los Decimales</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">
                     "Los decimales son números de gran precisión. Un pequeño error puede cambiarlo todo. ¿Tienes la precisión de un gran mago?"
                   </h2>
 
@@ -156,11 +156,11 @@ export default function DecimalPractice() {
               <div className="flex justify-between items-end mb-8">
                 <div>
                   <h1 className="text-3xl font-bold gradient-text">Reto Decimal</h1>
-                  <p className="text-text-tertiary">Suma con precisión los números decimales</p>
+                  <p className="text-tertiary">Suma con precisión los números decimales</p>
                 </div>
                 <div className="card !py-2 !px-4">
-                  <p className="text-xs text-text-tertiary uppercase tracking-widest mb-1">Poder Acumulado</p>
-                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-text-secondary">/ 10</span></p>
+                  <p className="text-xs text-tertiary uppercase tracking-widest mb-1">Poder Acumulado</p>
+                  <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-secondary">/ 10</span></p>
                 </div>
               </div>
 
@@ -170,7 +170,7 @@ export default function DecimalPractice() {
                 {problem && (
                   <div className="w-full text-center p-4">
                     <div className="mb-12">
-                      <div className="flex items-center justify-center gap-8 text-5xl md:text-7xl font-black text-text-primary dark:text-white">
+                      <div className="flex items-center justify-center gap-8 text-5xl md:text-7xl font-black text-primary dark:text-white">
                         <span>{problem.num1}</span>
                         <span className="text-accent-yellow">+</span>
                         <span>{problem.num2}</span>
@@ -255,7 +255,7 @@ export default function DecimalPractice() {
               >
                 <button 
                   onClick={() => setShowHelpModal(false)}
-                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -269,12 +269,12 @@ export default function DecimalPractice() {
                   <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
                     <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
                       <h4 className="text-lg font-bold text-accent-yellow mb-2">Comas vs Puntos</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed mb-4">
                         En matemáticas digitales, usamos el punto (.) para separar la parte entera de la parte decimal (décimos, centésimos...).
                       </p>
                       
                       <h4 className="text-lg font-bold text-accent-yellow mb-2">Suma de Decimales</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed">
                         Es igual que sumar números normales, solo asegúrate de alinear bien los puntos.
                         <br/>Ejemplo: 1.5 + 2.3 = 3.8
                       </p>
@@ -282,7 +282,7 @@ export default function DecimalPractice() {
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
                       <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Consejo del Mago</h4>
-                      <p className="text-sm text-text-secondary dark:text-white/70 italic">
+                      <p className="text-sm text-secondary dark:text-white/70 italic">
                         "¡No olvides el punto! Sin él, la magnitud del número cambia por completo. Los centavos en el tesoro agradecen tu precisión."
                       </p>
                     </div>

@@ -77,7 +77,7 @@ export default function AdditionPractice() {
     options.sort(() => Math.random() - 0.5)
 
     const figure1 = FIGURE_TYPES[Math.floor(Math.random() * FIGURE_TYPES.length)]
-    const figure2 = FIGURE_TYPES[Math.floor(Math.random() * FIGURE_TYPES.length)]
+    const figure2 = figure1 // Use the same figure type for both operands
     const color1 = FIGURE_COLORS[Math.floor(Math.random() * FIGURE_COLORS.length)]
     const color2 = FIGURE_COLORS[Math.floor(Math.random() * FIGURE_COLORS.length)]
 
@@ -134,7 +134,7 @@ export default function AdditionPractice() {
         <div className="flex justify-between items-center mb-8">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-text-secondary dark:text-text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-secondary dark:text-secondary hover:dark:text-white cursor-pointer hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al Reino</span>
@@ -186,7 +186,7 @@ export default function AdditionPractice() {
                     <span className="text-xs font-black uppercase tracking-widest">Maestro de la Isla</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">
                     "Bienvenido, tu primera mision sera superar los retos de sumas y restas, recuerda, que cada reto superado incrementará tu nivel de poder."
                   </h2>
 
@@ -213,11 +213,11 @@ export default function AdditionPractice() {
               <div className="flex justify-between items-end mb-8">
           <div>
             <h1 className="text-3xl font-bold gradient-text">Bosque de Sumas y Restas</h1>
-            <p className="text-text-tertiary">Elige la expresión correcta para los objetos</p>
+            <p className="text-tertiary">Elige la expresión correcta para los objetos</p>
           </div>
           <div className="card !py-2 !px-4">
-            <p className="text-xs text-text-tertiary uppercase tracking-widest mb-1">Progreso</p>
-            <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-text-secondary">/ 10</span></p>
+            <p className="text-xs text-tertiary uppercase tracking-widest mb-1">Progreso</p>
+            <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-secondary">/ 10</span></p>
           </div>
         </div>
 
@@ -242,8 +242,8 @@ export default function AdditionPractice() {
                   ))}
                 </div>
 
-                <div className="text-4xl font-bold text-accent-yellow">
-                  {problem.operator === '+' ? 'Y' : 'MENOS'}
+                <div className="text-6xl font-bold text-accent-yellow">
+                  {problem.operator}
                 </div>
 
                 <div className="flex flex-wrap max-w-[200px] justify-center gap-2">
@@ -268,7 +268,7 @@ export default function AdditionPractice() {
                     disabled={problemClosed}
                     className="group relative h-20 bg-dark-bg border-2 border-border-color cursor-pointer rounded-2xl hover:border-accent-yellow hover:bg-dark-bg/80 transition-all overflow-hidden"
                   >
-                    <span className="text-2xl font-mono text-text-primary dark:text-white group-hover:text-accent-yellow transition-colors italic">
+                    <span className="text-2xl font-mono text-primary dark:text-white group-hover:text-accent-yellow transition-colors italic">
                       {opt}
                     </span>
                   </button>
@@ -327,7 +327,7 @@ export default function AdditionPractice() {
               >
                 <button 
                   onClick={() => setShowHelpModal(false)}
-                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-tertiary hover:text-white transition-colors cursor-pointer z-10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -341,19 +341,19 @@ export default function AdditionPractice() {
                   <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
                     <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
                       <h4 className="text-lg font-bold text-accent-yellow mb-2">Sumas (+)</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed mb-4">
                         Sumar es unir o juntar varios grupos de objetos. Si tienes 3 manzanas y te dan 2 más, ahora tienes un grupo más grande de 5.
                       </p>
                       
                       <h4 className="text-lg font-bold text-accent-yellow mb-2">Restas (-)</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed">
+                      <p className="text-secondary dark:text-white/80 leading-relaxed">
                         Restar es quitar o separar una cantidad de un grupo. Si tienes 5 caramelos y te comes 2, ahora tienes un grupo más pequeño de 3.
                       </p>
                     </div>
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
                       <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Truco del Mago</h4>
-                      <p className="text-sm text-text-secondary dark:text-white/70 italic">
+                      <p className="text-sm text-secondary dark:text-white/70 italic">
                         "¡Cuenta los objetos uno a uno con tu dedo! En el Bosque, los objetos te dirán la respuesta si los observas con atención."
                       </p>
                     </div>
