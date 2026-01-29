@@ -5,6 +5,7 @@ import { ArrowLeft, RefreshCw, CheckCircle, XCircle, Sparkles, HelpCircle, X } f
 import { useUserStore } from '../store/userStore'
 import WizardSprite from '../components/WizardSprite'
 import LevelCompletionModal from '../components/LevelCompletionModal'
+import { AnimatedGeometricFigure } from '../components/GeometricFigure'
 import wizardIdle from '../assets/sprites/wizard/Idle.png'
 
 interface AdditionProblem {
@@ -13,13 +14,23 @@ interface AdditionProblem {
   operator: '+' | '-'
   answer: number
   options: string[]
-  item1: string
-  item2: string
+  figure1: 'circle' | 'triangle' | 'square'
+  figure2: 'circle' | 'triangle' | 'square'
+  color1: string
+  color2: string
 }
 
-const ITEM_TYPES = [
-  'fb1.png', 'fb2.png', 'fb3.png', 'fb4.png', 'fb5.png', 
-  'fb10.png', 'fb11.png', 'fb12.png', 'fb100.png', 'fb101.png'
+const FIGURE_TYPES: ('circle' | 'triangle' | 'square')[] = ['circle', 'triangle', 'square']
+
+const FIGURE_COLORS = [
+  '#FFD700', // Gold
+  '#FF6B6B', // Red
+  '#4ECDC4', // Teal
+  '#95E1D3', // Mint
+  '#F38181', // Pink
+  '#AA96DA', // Purple
+  '#FCBAD3', // Light Pink
+  '#A8E6CF', // Light Green
 ]
 
 export default function AdditionPractice() {
@@ -65,10 +76,12 @@ export default function AdditionPractice() {
     options.push(correctOption)
     options.sort(() => Math.random() - 0.5)
 
-    const item1 = ITEM_TYPES[Math.floor(Math.random() * ITEM_TYPES.length)]
-    const item2 = ITEM_TYPES[Math.floor(Math.random() * ITEM_TYPES.length)]
+    const figure1 = FIGURE_TYPES[Math.floor(Math.random() * FIGURE_TYPES.length)]
+    const figure2 = FIGURE_TYPES[Math.floor(Math.random() * FIGURE_TYPES.length)]
+    const color1 = FIGURE_COLORS[Math.floor(Math.random() * FIGURE_COLORS.length)]
+    const color2 = FIGURE_COLORS[Math.floor(Math.random() * FIGURE_COLORS.length)]
 
-    setProblem({ num1: n1, num2: n2, operator, answer: ans, options, item1, item2 })
+    setProblem({ num1: n1, num2: n2, operator, answer: ans, options, figure1, figure2, color1, color2 })
     setFeedback(null)
     setProblemClosed(false)
   }
@@ -219,12 +232,12 @@ export default function AdditionPractice() {
               <div className="flex flex-wrap justify-center items-center gap-8 mb-12">
                 <div className="flex flex-wrap max-w-[200px] justify-center gap-2">
                   {Array.from({ length: problem.num1 }).map((_, i) => (
-                    <motion.img 
+                    <AnimatedGeometricFigure
                       key={`n1-${i}`}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      src={`/src/assets/items/${problem.item1}`} 
-                      className="w-12 h-12 object-contain filter drop-shadow-lg"
+                      type={problem.figure1}
+                      size={48}
+                      color={problem.color1}
+                      className="filter drop-shadow-lg"
                     />
                   ))}
                 </div>
@@ -235,12 +248,12 @@ export default function AdditionPractice() {
 
                 <div className="flex flex-wrap max-w-[200px] justify-center gap-2">
                   {Array.from({ length: problem.num2 }).map((_, i) => (
-                    <motion.img 
+                    <AnimatedGeometricFigure
                       key={`n2-${i}`}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      src={`/src/assets/items/${problem.item2}`} 
-                      className="w-12 h-12 object-contain filter drop-shadow-lg"
+                      type={problem.figure2}
+                      size={48}
+                      color={problem.color2}
+                      className="filter drop-shadow-lg"
                     />
                   ))}
                 </div>
