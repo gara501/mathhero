@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/mathink/', // Base path for GitHub Pages
+  base: '/mathhero/', // Base path for GitHub Pages
   plugins: [
     react({
       babel: {
