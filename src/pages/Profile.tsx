@@ -7,11 +7,12 @@ import { useStats } from '../hooks/useStats'
 import { CHARACTERS } from '../constants/characters'
 import CharacterPreview from '../components/CharacterPreview'
 import AvatarModal from '../components/AvatarModal'
+import StatsCard from '../components/StatsCard'
 import { MEDALS, SKILLS } from '../constants/achievements'
 
 export default function Profile() {
   const navigate = useNavigate()
-  const { username, heroName, stats, selectedCharacter, setSelectedCharacter, completedLevels } = useUserStore()
+  const { username, heroName, selectedCharacter, setSelectedCharacter, completedLevels } = useUserStore()
   const derivedStats = useStats()
   const [isAvatarModalOpen, setIsAvatarModalOpen] = useState(false)
 
@@ -23,6 +24,30 @@ export default function Profile() {
   // Calculate earned achievements based on completed levels
   const earnedMedals = MEDALS.slice(0, completedLevels.length)
   const earnedSkills = SKILLS.slice(0, completedLevels.length)
+
+  const statsList = [
+    {
+      title: 'Problemas Resueltos',
+      value: derivedStats.solved.toString(),
+      trend: derivedStats.solvedTrend,
+      subtitle: 'Total acumulado',
+      icon: <Target className="w-6 h-6 text-white" />,
+    },
+    {
+      title: 'Precisión',
+      value: derivedStats.precision,
+      trend: derivedStats.precisionTrend,
+      subtitle: 'Eficiencia global',
+      icon: <Award className="w-6 h-6 text-white" />,
+    },
+    {
+      title: 'Racha Actual',
+      value: derivedStats.streak,
+      trend: derivedStats.streakTrend,
+      subtitle: '¡Sigue así!',
+      icon: <Zap className="w-6 h-6 text-white" />,
+    },
+  ]
 
   return (
     <div className="min-h-screen p-6 md:p-8 lg:p-12 relative overflow-hidden">
@@ -91,33 +116,15 @@ export default function Profile() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="card p-6"
+              className="space-y-4"
             >
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-text-primary dark:text-text-tertiary">
-                <Shield className="w-5 h-5 text-accent-yellow" /> Estadísticas Base
+              <h3 className="text-xl font-bold flex items-center gap-2 text-text-primary dark:text-text-tertiary px-2">
+                <Shield className="w-5 h-5 text-accent-yellow" /> Rendimiento de Héroe
               </h3>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-3 bg-dark-bg/30 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <Target className="w-5 h-5 text-blue-400" />
-                    <span className="text-sm dark:text-text-tertiary">Resueltos</span>
-                  </div>
-                  <span className="font-bold text-lg dark:text-text-tertiary">{stats.totalProblemsSolved}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-dark-bg/30 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <Award className="w-5 h-5 text-accent-yellow" />
-                    <span className="text-sm dark:text-text-tertiary">Precisión</span>
-                  </div>
-                  <span className="font-bold text-lg dark:text-text-tertiary">{derivedStats.precision}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-dark-bg/30 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <Zap className="w-5 h-5 text-orange-400" />
-                    <span className="text-sm dark:text-text-tertiary">Racha</span>
-                  </div>
-                  <span className="font-bold text-lg dark:text-text-tertiary">{derivedStats.streak}</span>
-                </div>
+              <div className="grid grid-cols-1 gap-4">
+                {statsList.map((stat, index) => (
+                  <StatsCard key={index} {...stat} />
+                ))}
               </div>
             </motion.div>
           </div>

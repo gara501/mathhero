@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import Dashboard from './components/Dashboard'
 import ArithmeticPractice from './pages/ArithmeticPractice'
@@ -12,6 +12,8 @@ import MultiplicationPractice from './pages/MultiplicationPractice'
 import DivisionPractice from './pages/DivisionPractice'
 import FractionPractice from './pages/FractionPractice'
 import DecimalPractice from './pages/DecimalPractice'
+import DecimalSortingPractice from './pages/DecimalSortingPractice'
+import CartesianChallenge from './pages/CartesianChallenge'
 
 function App() {
   return (
@@ -26,7 +28,9 @@ function App() {
           <Route path="/practice/multiplication" element={<MultiplicationPractice />} />
           <Route path="/practice/division" element={<DivisionPractice />} />
           <Route path="/practice/fractions" element={<FractionPractice />} />
+          <Route path="/practice/sorting-decimals" element={<DecimalSortingPractice />} />
           <Route path="/practice/decimals" element={<DecimalPractice />} />
+          <Route path="/practice/cartesian" element={<CartesianChallenge />} />
           <Route path="/practice/geometric" element={<GeometricPractice />} />
           <Route path="/practice/alternating" element={<AlternatingPractice />} />
           <Route path="/practice/functions" element={<FunctionPractice />} />

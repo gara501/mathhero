@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Target, Award, Zap, Calculator, Infinity, Repeat, FunctionSquare, User } from 'lucide-react'
-import StatsCard from './StatsCard'
+import { User } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
-import GameMap from './GameMap'
+import WorldMap from './WorldMap'
 import { useUserStore } from '../store/userStore'
-import { useStats } from '../hooks/useStats'
 import { CHARACTERS } from '../constants/characters'
 import CharacterPreview from './CharacterPreview'
 import StoryDialogue from './StoryDialogue'
@@ -19,7 +17,6 @@ import { BookOpen } from 'lucide-react'
 export default function Dashboard() {
   const navigate = useNavigate()
   const { username, heroName, logout } = useUserStore()
-  const derivedStats = useStats()
   const [showStory, setShowStory] = useState(false)
 
   if (!username) {
@@ -27,29 +24,6 @@ export default function Dashboard() {
     return null
   }
 
-  const stats = [
-    {
-      title: 'Problemas Resueltos',
-      value: derivedStats.solved.toString(),
-      trend: derivedStats.solvedTrend,
-      subtitle: 'Total acumulado',
-      icon: <Target className="w-6 h-6 text-white" />,
-    },
-    {
-      title: 'Precisión',
-      value: derivedStats.precision,
-      trend: derivedStats.precisionTrend,
-      subtitle: 'Eficiencia global',
-      icon: <Award className="w-6 h-6 text-white" />,
-    },
-    {
-      title: 'Racha Actual',
-      value: derivedStats.streak,
-      trend: derivedStats.streakTrend,
-      subtitle: '¡Juega a diario para subir!',
-      icon: <Zap className="w-6 h-6 text-white" />,
-    },
-  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -113,7 +87,7 @@ export default function Dashboard() {
                   <span className="text-text-tertiary text-sm italic !font-normal">alias {heroName}</span>
                   <button 
                     onClick={() => navigate('/profile')}
-                    className="text-[14px] bg-accent-yellow/10 text-accent-yellow px-2 py-0.5 rounded border border-accent-yellow/20 hover:bg-accent-yellow/20 transition-smooth cursor-pointer"
+                    className="text-[14px] bg-accent-yellow/10 dark:bg-accent-yellow/10 text-accent-red px-2 py-0.5 rounded border border-accent-red/20 hover:bg-accent-red/20 dark:hover:bg-accent-red/20 transition-smooth cursor-pointer"
                   >
                     Configurar Perfil
                   </button>
@@ -134,31 +108,24 @@ export default function Dashboard() {
               logout()
               navigate('/')
             }}
-            className="px-4 py-2 text-lg dark:text-white dark:hover:text-red-400 text-text-secondary hover:text-red-400 transition-colors flex items-center gap-2 cursor-pointer"
+            className="px-4 py-2 text-lg dark:text-primary dark:hover:text-red-400 text-primary hover:text-red-400 transition-colors flex items-center gap-2 cursor-pointer"
           >
             Cerrar Sesión
           </button>
         </motion.div>
 
-        {/* Stats Grid */}
-        <h4 className="text-2xl font-bold text-primary mb-6">Tus Estadísticas</h4>
-        <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {stats.map((stat, index) => (
-            <StatsCard key={index} {...stat} />
-          ))}
-        </motion.div>
 
         {/* Interactive Map */}
         <motion.div variants={itemVariants} className="mb-12">
           <h2 className="text-2xl font-bold text-text-primary mb-6">Explora el Reino</h2>
-          <GameMap />
+          <WorldMap />
         </motion.div>
        
 
         {/* Footer Info */}
         <motion.div variants={itemVariants} className="mt-12 text-center">
-          <p className="text-text-tertiary text-sm">
-            Selecciona una categoría para comenzar a practicar
+          <p className="text-primary dark:text-primary text-lg">
+            Empieza tu aventura, selecciona un mundo para comenzar
           </p>
         </motion.div>
       </motion.div>

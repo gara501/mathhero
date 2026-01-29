@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, RefreshCw, CheckCircle, XCircle, Sparkles, HelpCircle, X } from 'lucide-react'
+import { motion, AnimatePresence, Reorder } from 'framer-motion'
+import { ArrowLeft, RefreshCw, CheckCircle, XCircle, Sparkles, HelpCircle, X, GripHorizontal } from 'lucide-react'
 import { useUserStore } from '../store/userStore'
 import WizardSprite from '../components/WizardSprite'
 import LevelCompletionModal from '../components/LevelCompletionModal'
 import wizardIdle from '../assets/sprites/wizard/Idle.png'
 
-interface DecimalProblem {
-  num1: number
-  num2: number
-  answer: number
+interface SortingProblem {
+  id: string
+  numbers: number[]
+  correctOrder: number[]
 }
 
-export default function DecimalPractice() {
+export default function DecimalSortingPractice() {
   const navigate = useNavigate()
   const { recordResult, completeLevel } = useUserStore()
   
-  const [problem, setProblem] = useState<DecimalProblem | null>(null)
-  const [userAnswer, setUserAnswer] = useState('')
+  const [problem, setProblem] = useState<SortingProblem | null>(null)
+  const [items, setItems] = useState<number[]>([])
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null)
   const [correctCount, setCorrectCount] = useState(0)
   const [isSuperado, setIsSuperado] = useState(false)
@@ -27,12 +27,32 @@ export default function DecimalPractice() {
   const [showHelpModal, setShowHelpModal] = useState(false)
 
   const generateProblem = () => {
-    const n1 = Math.floor(Math.random() * 100) / 10
-    const n2 = Math.floor(Math.random() * 100) / 10
-    const ans = parseFloat((n1 + n2).toFixed(1))
+    const count = Math.floor(Math.random() * 2) + 3 // 3 or 4 numbers
+    const newNumbers: number[] = []
+    
+    // Mix of difficulties
+    const base = Math.floor(Math.random() * 20)
+    for (let i = 0; i < count; i++) {
+      let num: number
+      do {
+        // Shared integer part sometimes to make it harder
+        const sameBase = Math.random() > 0.4
+        const integerPart = sameBase ? base : Math.floor(Math.random() * 20)
+        const decimalPart = Math.floor(Math.random() * 100) / 100
+        num = parseFloat((integerPart + decimalPart).toFixed(2))
+      } while (newNumbers.includes(num))
+      newNumbers.push(num)
+    }
 
-    setProblem({ num1: n1, num2: n2, answer: ans })
-    setUserAnswer('')
+    const sortedOrder = [...newNumbers].sort((a, b) => a - b)
+    
+    setProblem({ 
+      id: Date.now().toString(),
+      numbers: newNumbers,
+      correctOrder: sortedOrder
+    })
+    // Shuffle items for the UI
+    setItems([...newNumbers].sort(() => Math.random() - 0.5))
     setFeedback(null)
     setProblemClosed(false)
   }
@@ -41,20 +61,21 @@ export default function DecimalPractice() {
     generateProblem()
   }, [])
 
-  const checkAnswer = () => {
+  const checkResults = () => {
     if (!problem || problemClosed) return
 
-    const userNum = parseFloat(userAnswer)
-    if (Math.abs(userNum - problem.answer) < 0.01) {
+    const isCorrect = items.every((num, idx) => num === problem.correctOrder[idx])
+
+    if (isCorrect) {
       setFeedback('correct')
       setProblemClosed(true)
-      recordResult(10, true)
+      recordResult(15, true)
       
       const newCount = correctCount + 1
       setCorrectCount(newCount)
       
       if (newCount >= 10) {
-        completeLevel('level9') // Corrected to level9 according to GameMap
+        completeLevel('level6')
         setTimeout(() => setIsSuperado(true), 1000)
       }
     } else {
@@ -67,8 +88,8 @@ export default function DecimalPractice() {
     return (
       <LevelCompletionModal 
         isOpen={true} 
-        levelName="Reto Decimal" 
-        points={correctCount * 10} 
+        levelName="Ordenamiento Decimal" 
+        points={correctCount * 15} 
       />
     )
   }
@@ -130,18 +151,18 @@ export default function DecimalPractice() {
                 <div className="flex-1 text-center md:text-left">
                   <div className="flex items-center gap-2 mb-4 justify-center md:justify-start text-accent-yellow">
                     <Sparkles className="w-5 h-5" />
-                    <span className="text-xs font-black uppercase tracking-widest">Maestro de los Decimales</span>
+                    <span className="text-xs font-black uppercase tracking-widest">Misión de Reordenamiento</span>
                   </div>
                   
                   <h2 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-white mb-6 leading-tight">
-                    "Los decimales son números de gran precisión. Un pequeño error puede cambiarlo todo. ¿Tienes la precisión de un gran mago?"
+                    "Los cristales decimales se han desordenado. Debes organizarlos de menor a mayor para restaurar el flujo de la magia."
                   </h2>
 
                   <button
                     onClick={() => setShowIntro(false)}
                     className="group relative px-10 py-4 bg-accent-yellow text-dark-bg font-black rounded-2xl hover:shadow-glow transition-all hover:scale-105 active:scale-95 uppercase tracking-tighter overflow-hidden cursor-pointer"
                   >
-                    <span className="relative z-10">¡Iniciar Prueba!</span>
+                    <span className="relative z-10">¡Entendido, Maestro!</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   </button>
                 </div>
@@ -155,60 +176,64 @@ export default function DecimalPractice() {
             >
               <div className="flex justify-between items-end mb-8">
                 <div>
-                  <h1 className="text-3xl font-bold gradient-text">Reto Decimal</h1>
-                  <p className="text-text-tertiary">Suma con precisión los números decimales</p>
+                  <h1 className="text-3xl font-bold gradient-text">Ordenamiento Decimal</h1>
+                  <p className="text-text-tertiary">Arrastra los números para ordenarlos de menor a mayor</p>
                 </div>
                 <div className="card !py-2 !px-4">
-                  <p className="text-xs text-text-tertiary uppercase tracking-widest mb-1">Poder Acumulado</p>
+                  <p className="text-xs text-text-tertiary uppercase tracking-widest mb-1">Pasos Correctos</p>
                   <p className="text-2xl font-bold text-accent-yellow">{correctCount} <span className="text-sm text-text-secondary">/ 10</span></p>
                 </div>
               </div>
 
               <motion.div 
-                className="card min-h-[400px] flex flex-col items-center justify-center border-t-8 border-accent-yellow"
+                className="card min-h-[450px] flex flex-col items-center justify-center border-t-8 border-accent-yellow"
               >
                 {problem && (
                   <div className="w-full text-center p-4">
                     <div className="mb-12">
-                      <div className="flex items-center justify-center gap-8 text-5xl md:text-7xl font-black text-text-primary dark:text-white">
-                        <span>{problem.num1}</span>
-                        <span className="text-accent-yellow">+</span>
-                        <span>{problem.num2}</span>
-                      </div>
+                      <p className="text-xl text-text-tertiary dark:text-white/60 mb-8 italic">Organiza estos cristales de poder:</p>
+                      
+                      <Reorder.Group 
+                        axis="x" 
+                        values={items} 
+                        onReorder={setItems}
+                        className="flex flex-wrap justify-center gap-4 py-8"
+                      >
+                        {items.map((num) => (
+                          <Reorder.Item
+                            key={num}
+                            value={num}
+                            drag={!problemClosed ? "x" : false}
+                            className={`
+                              cursor-grab active:cursor-grabbing select-none
+                              w-28 h-20 md:w-32 md:h-24 rounded-2xl flex flex-col items-center justify-center text-2xl md:text-3xl font-black border-4 shadow-xl transition-colors
+                              ${problemClosed 
+                                ? 'bg-green-500/10 border-green-500/50 text-green-500' 
+                                : 'bg-dark-bg border-white/10 text-white hover:border-accent-yellow'}
+                            `}
+                          >
+                            <GripHorizontal className="w-4 h-4 mb-2 opacity-20" />
+                            <span>{num.toString().replace('.', ',')}</span>
+                          </Reorder.Item>
+                        ))}
+                      </Reorder.Group>
                     </div>
 
                     <div className="max-w-md mx-auto space-y-6">
                       {!problemClosed ? (
-                        <>
-                          <input
-                            type="number"
-                            step="0.1"
-                            value={userAnswer}
-                            onChange={(e) => {
-                              setUserAnswer(e.target.value)
-                              if (feedback === 'incorrect') setFeedback(null)
-                            }}
-                            onKeyPress={(e) => e.key === 'Enter' && checkAnswer()}
-                            placeholder="Resultado decimal..."
-                            className="w-full h-16 bg-dark-bg border-4 border-white/10 rounded-2xl px-6 text-3xl font-bold text-center focus:border-accent-yellow outline-none transition-all dark:text-white"
-                            autoFocus
-                          />
-
-                          <button
-                            onClick={checkAnswer}
-                            disabled={!userAnswer}
-                            className="w-full h-14 bg-accent-yellow text-dark-bg font-black rounded-xl hover:shadow-glow transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer uppercase tracking-tighter"
-                          >
-                            Lanzar Hechizo
-                          </button>
-                        </>
+                        <button
+                          onClick={checkResults}
+                          className="w-full h-16 bg-accent-yellow text-dark-bg font-black rounded-2xl hover:shadow-glow transition-all active:scale-95 cursor-pointer uppercase tracking-tighter"
+                        >
+                          Hechizo de Validación
+                        </button>
                       ) : (
                         <button
                           onClick={generateProblem}
                           className="px-10 py-4 bg-gradient-to-r from-accent-yellow to-orange-400 text-dark-bg font-black rounded-2xl hover:shadow-glow transition-all flex items-center gap-2 mx-auto cursor-pointer uppercase tracking-tighter"
                         >
                           <RefreshCw className="w-6 h-6" />
-                          Siguiente Prueba
+                          Siguiente Enigma
                         </button>
                       )}
 
@@ -223,9 +248,9 @@ export default function DecimalPractice() {
                             }`}
                           >
                             {feedback === 'correct' ? (
-                              <><CheckCircle className="w-6 h-6" /> <span className="text-xl font-bold">¡Precisión de maestro! El {problem.answer} es correcto.</span></>
+                              <><CheckCircle className="w-6 h-6" /> <span className="text-xl font-bold">¡El orden es perfecto! La magia fluye de nuevo.</span></>
                             ) : (
-                              <><XCircle className="w-6 h-6" /> <span className="text-xl font-bold">Casi... ¡Afina tu puntería e intenta de nuevo!</span></>
+                              <><XCircle className="w-6 h-6" /> <span className="text-xl font-bold">Un cristal está fuera de lugar. ¡Revisa el orden!</span></>
                             )}
                           </motion.div>
                         )}
@@ -263,27 +288,27 @@ export default function DecimalPractice() {
                 <div className="p-8">
                   <div className="flex items-center gap-3 text-accent-yellow mb-6">
                     <HelpCircle className="w-8 h-8" />
-                    <h3 className="text-2xl font-black uppercase tracking-tighter">Guía de Decimales</h3>
+                    <h3 className="text-2xl font-black uppercase tracking-tighter">Sabiduría Decimal</h3>
                   </div>
 
                   <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
                     <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
-                      <h4 className="text-lg font-bold text-accent-yellow mb-2">Comas vs Puntos</h4>
+                      <h4 className="text-lg font-bold text-accent-yellow mb-2">¿Cómo comparar decimales?</h4>
                       <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
-                        En matemáticas digitales, usamos el punto (.) para separar la parte entera de la parte decimal (décimos, centésimos...).
+                        1. **Compara la parte entera** (antes de la coma). 10,5 es mayor que 9,9.
+                        <br/>2. Si son iguales, **compara los décimos** (primera cifra decimal). 8,50 es mayor que 8,05.
+                        <br/>3. Continúa con centésimos si es necesario.
                       </p>
                       
-                      <h4 className="text-lg font-bold text-accent-yellow mb-2">Suma de Decimales</h4>
-                      <p className="text-text-secondary dark:text-white/80 leading-relaxed">
-                        Es igual que sumar números normales, solo asegúrate de alinear bien los puntos.
-                        <br/>Ejemplo: 1.5 + 2.3 = 3.8
-                      </p>
+                      <div className="bg-dark-bg p-4 rounded-xl border border-white/10 font-mono text-center">
+                        <div className="mb-2">8,04 &lt; 8,35 &lt; 9,26</div>
+                      </div>
                     </div>
 
                     <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
-                      <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Consejo del Mago</h4>
+                      <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Truco del Mago</h4>
                       <p className="text-sm text-text-secondary dark:text-white/70 italic">
-                        "¡No olvides el punto! Sin él, la magnitud del número cambia por completo. Los centavos en el tesoro agradecen tu precisión."
+                        "¡Iguala las cifras! Puedes añadir ceros invisibles al final. 8,5 es lo mismo que 8,50. Así es más fácil ver cuál es mayor."
                       </p>
                     </div>
                   </div>

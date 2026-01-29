@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Sparkles } from 'lucide-react'
+import { ArrowLeft, Sparkles, HelpCircle, X } from 'lucide-react'
 import { useUserStore } from '../store/userStore'
 import LevelCompletionModal from '../components/LevelCompletionModal'
 import EquationMatcher from '../components/EquationMatcher'
@@ -15,6 +15,7 @@ export default function MultiplicationPractice() {
   const [isSuperado, setIsSuperado] = useState(false)
   const [sessionPoints, setSessionPoints] = useState(0)
   const [showIntro, setShowIntro] = useState(true)
+  const [showHelpModal, setShowHelpModal] = useState(false)
 
   const handleLevelComplete = (totalPoints: number) => {
     setSessionPoints(totalPoints)
@@ -41,13 +42,25 @@ export default function MultiplicationPractice() {
       />
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <button
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 text-text-secondary hover:text-primary mb-8 transition-colors cursor-pointer"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          <span>Volver al Reino</span>
-        </button>
+        <div className="flex justify-between items-center mb-8">
+          <button
+            onClick={() => navigate('/')}
+            className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Volver al Reino</span>
+          </button>
+
+          {!showIntro && (
+            <button
+              onClick={() => setShowHelpModal(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-white/5 text-accent-yellow rounded-xl hover:bg-white/10 transition-all cursor-pointer border border-accent-yellow/20"
+            >
+              <HelpCircle className="w-5 h-5" />
+              <span className="font-bold hidden sm:inline">¿Necesitas Ayuda?</span>
+            </button>
+          )}
+        </div>
 
         <AnimatePresence mode="wait">
           {showIntro ? (
@@ -90,7 +103,7 @@ export default function MultiplicationPractice() {
 
                   <button
                     onClick={() => setShowIntro(false)}
-                    className="group relative px-10 py-4 bg-accent-yellow text-dark-bg font-black rounded-2xl hover:shadow-glow transition-all hover:scale-105 active:scale-95 uppercase tracking-tighter overflow-hidden"
+                    className="group relative px-10 py-4 bg-accent-yellow text-dark-bg font-black rounded-2xl hover:shadow-glow transition-all hover:scale-105 active:scale-95 uppercase tracking-tighter overflow-hidden cursor-pointer"
                   >
                     <span className="relative z-10">¡Estoy listo!</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -123,6 +136,57 @@ export default function MultiplicationPractice() {
                   equationsPerRound={5}
                   onLevelComplete={handleLevelComplete}
                 />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Help Modal */}
+        <AnimatePresence>
+          {showHelpModal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/60 backdrop-blur-md"
+            >
+              <motion.div
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                className="w-full max-w-2xl bg-dark-card rounded-[2.5rem] border-4 border-accent-yellow shadow-2xl relative overflow-hidden"
+              >
+                <button 
+                  onClick={() => setShowHelpModal(false)}
+                  className="absolute top-6 right-6 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-text-tertiary hover:text-white transition-colors cursor-pointer z-10"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+
+                <div className="p-8">
+                  <div className="flex items-center gap-3 text-accent-yellow mb-6">
+                    <HelpCircle className="w-8 h-8" />
+                    <h3 className="text-2xl font-black uppercase tracking-tighter">Guía de Multiplicación</h3>
+                  </div>
+
+                  <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
+                    <div className="p-6 bg-dark-bg/50 rounded-2xl border-2 border-white/5">
+                      <p className="text-text-secondary dark:text-white/80 leading-relaxed mb-4">
+                        Multiplicar es como hacer una "suma superrápida". Significa sumar el mismo número varias veces.
+                      </p>
+                      <div className="bg-dark-bg p-4 rounded-xl border border-white/10 font-mono text-center">
+                        <span className="text-accent-yellow">3 x 4</span> = 3 + 3 + 3 + 3 = <span className="text-accent-yellow">12</span>
+                      </div>
+                    </div>
+
+                    <div className="p-6 bg-accent-yellow/10 rounded-2xl border-2 border-accent-yellow/20">
+                      <h4 className="font-black text-accent-yellow uppercase text-sm mb-2">Consejo del Mago</h4>
+                      <p className="text-sm text-text-secondary dark:text-white/70 italic">
+                        "¡Arrastra las piezas con calma! Si conoces las tablas de multiplicar, este nivel será pan comido para un aprendiz como tú."
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           )}
